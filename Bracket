@@ -2,39 +2,74 @@ package org.example;
 
 public class Bracket {
    Graph<Game> bracket;
+   Game game1;
+    Game game2;
+    Game game3;
+    Game game4;
+    Game game5;
+    Game game6;
+    Game game7;
+    Game game8;
+    Game game9;
+    Game game10;
+    Game game11;
+    Game game12;
+    Game game13;
+    Game game14;
+    Game game15;
+    Game game16;
+    Game game17;
+    Game game18;
+    Game game19;
+    Game game20;
+    Game game21;
+    Game game22;
+    Game game23;
+    Game game24;
+    Game game25;
+    Game game26;
+    Game game27;
+    Game game28;
+    Game game29;
+    Game game30;
+    Game game31;
+    Game game32;
    Bracket() {
-       Game game1 = new Game("Purdue",1,"Grambling St.",16);
-       Game game2 = new Game("Houston",1,"Longwood",16);
-       Game game3 = new Game("Connecticut",1,"Stetson",16);
-       Game game4 = new Game("North Carolina",1,"Wagner",16);
-       Game game5 = new Game("Iowa St.",2,"South Dakota St.",15);
-       Game game6 = new Game("Arizona",2,"Long Beach St.",15);
-       Game game7 = new Game("Marquette",2,"Western Kentucky",15);
-       Game game8 = new Game("Tennessee",2,"Saint Peter's",15);
-       Game game9 = new Game("Illinois",3,"Morehead St.",14);
-       Game game10 = new Game("Baylor",3,"Colgate",14);
-       Game game11 = new Game("Kentucky",3,"Oakland",14);
-       Game game12 = new Game("Creighton",3,"Akron",14);
-       Game game13 = new Game("Auburn",4,"Yale",13);
-       Game game14 = new Game("Alabama",4,"Charleston",13);
-       Game game15 = new Game("Kansas",4,"Samford",13);
-       Game game16 = new Game("Duke",4,"Vermont",13);
-       Game game17 = new Game("San Diego St.",5,"UAB",12);
-       Game game18 = new Game("Saint Mary's", 5, "Grand Canyon",12);
-       Game game19 = new Game("Wisconsin",5,"James Madison",15);
-       Game game20 = new Game("Gonzaga",5,"McNeese St.",12);
-       Game game21 = new Game("BYU",6,"Duquesne",11);
-       Game game22 = new Game("South Carolina",6,"Oregon",11);
-       Game game23 = new Game("Texas Tech",6,"N.C. State",11);
-       Game game24 = new Game("Clemson",6,"New Mexico",11);
-       Game game25 = new Game("Texas",7,"Colorado St.",10);
-       Game game26 = new Game("Dayton",7,"Nevada",10);
-       Game game27 = new Game("Florida",7,"Colorado",10);
-       Game game28 = new Game("Washington St.",7,"Drake",10);
-       Game game29 = new Game("Florida Atlantic",8,"Northwestern",9);
-       Game game30 = new Game("Nebraska",8,"Texas A&M",9);
-       Game game31 = new Game("Utah St.",8,"TCU",9);
-       Game game32 = new Game("Mississippi St.",8,"Michigan St.", 9);
+        game1 = new Game("Connecticut",1,"Stetson",16);
+        game2 = new Game("Florida Atlantic",8,"Northwestern",9);
+        game3 = new Game("San Diego St.",5,"UAB",12);
+        game4 = new Game("Auburn",4,"Yale",13);
+        game5 = new Game("BYU",6,"Duquesne",11);
+        game6 = new Game("Illinois",3,"Morehead St.",14);
+        game7 = new Game("Washington St.",7,"Drake",10);
+        game8 = new Game("Iowa St.",2,"South Dakota St.",15);
+
+        game9 = new Game("North Carolina",1,"Wagner",16);
+        game10 = new Game("Mississippi St.",8,"Michigan St.", 9);
+        game11 = new Game("Saint Mary's", 5, "Grand Canyon",12);
+        game12 = new Game("Alabama",4,"Charleston",13);
+        game13 = new Game("Clemson",6,"New Mexico",11);
+        game14 = new Game("Baylor",3,"Colgate",14);
+        game15 = new Game("Dayton",7,"Nevada",10);
+        game16 = new Game("Arizona",2,"Long Beach St.",15);
+
+        game17 = new Game("Houston",1,"Longwood",16);
+        game18 = new Game("Nebraska",8,"Texas A&M",9);
+        game19 = new Game("Wisconsin",5,"James Madison",15);
+        game20 = new Game("Duke",4,"Vermont",13);
+        game21 = new Game("Texas Tech",6,"N.C. State",11);
+        game22 = new Game("Kentucky",3,"Oakland",14);
+        game23 = new Game("Florida",7,"Colorado",10);
+        game24 = new Game("Marquette",2,"Western Kentucky",15);
+
+        game25 = new Game("Purdue",1,"Grambling St.",16);
+        game26 = new Game("Utah St.",8,"TCU",9);
+        game27 = new Game("Gonzaga",5,"McNeese St.",12);
+        game28 = new Game("Kansas",4,"Samford",13);
+        game29 = new Game("South Carolina",6,"Oregon",11);
+        game30 = new Game("Creighton",3,"Akron",14);
+        game31 = new Game("Texas",7,"Colorado St.",10);
+        game32 = new Game("Tennessee",2,"Saint Peter's",15);
        Game game33 = new Game();
        Game game34 = new Game();
        Game game35 = new Game();
@@ -68,191 +103,195 @@ public class Bracket {
        Game game63 = new Game();
 
        bracket.addVertex(game1);
-       bracket.addVertex(game31);
+       bracket.addVertex(game2);
        bracket.addVertex(game33);
        bracket.addEdge(game1,game33,true);
-       bracket.addEdge(game31,game33,true);
+       bracket.addEdge(game2,game33,true);
 
-       bracket.addVertex(game15);
-       bracket.addVertex(game20);
+       bracket.addVertex(game3);
+       bracket.addVertex(game4);
        bracket.addVertex(game34);
-       bracket.addEdge(game15,game34,true);
-       bracket.addEdge(game20,game34,true);
+       bracket.addEdge(game3,game34,true);
+       bracket.addEdge(game4,game34,true);
 
-       bracket.addVertex(game22);
-       bracket.addVertex(game12);
+       bracket.addVertex(game5);
+       bracket.addVertex(game6);
        bracket.addVertex(game35);
-       bracket.addEdge(game22,game35,true);
-       bracket.addEdge(game12,game35,true);
+       bracket.addEdge(game5,game35,true);
+       bracket.addEdge(game6,game35,true);
 
-       //Texas Tennesee
-       bracket.addVertex(game25);
+
+       bracket.addVertex(game7);
        bracket.addVertex(game8);
        bracket.addVertex(game36);
-       bracket.addEdge(game25,game36,true);
+       bracket.addEdge(game7,game36,true);
        bracket.addEdge(game8,game36,true);
 
 
 
-       //Houston vs Nebraska
-       bracket.addVertex(game2);
-       bracket.addVertex(game30);
+
+       bracket.addVertex(game9);
+       bracket.addVertex(game10);
        bracket.addVertex(game37);
-       bracket.addEdge(game2,game37,true);
-       bracket.addEdge(game30,game37,true);
+       bracket.addEdge(game9,game37,true);
+       bracket.addEdge(game10,game37,true);
 
-       //Wisconsin vs Duke
-       bracket.addVertex(game19);
-       bracket.addVertex(game16);
-       bracket.addVertex(game38);
-       bracket.addEdge(game19,game38,true);
-       bracket.addEdge(game16,game38,true);
-
-       //Texas Tech vs Kentucky
-       bracket.addVertex(game23);
+  
        bracket.addVertex(game11);
-       bracket.addVertex(game39);
-       bracket.addEdge(game23,game39,true);
-       bracket.addEdge(game11,game39,true);
+       bracket.addVertex(game12);
+       bracket.addVertex(game38);
+       bracket.addEdge(game11,game38,true);
+       bracket.addEdge(game12,game38,true);
 
-       //Florida vs Marquette
-       bracket.addVertex(game27);
-       bracket.addVertex(game7);
-       bracket.addVertex(game40);
-       bracket.addEdge(game27,game40,true);
-       bracket.addEdge(game7,game40,true);
-
-       //UConn vs Florida Atlantic
-       bracket.addVertex(game3);
-       bracket.addVertex(game29);
-       bracket.addVertex(game41);
-       bracket.addEdge(game3,game41,true);
-       bracket.addEdge(game29,game41,true);
-
-       //SDSU Vs Auburn
-       bracket.addVertex(game17);
+       
        bracket.addVertex(game13);
+       bracket.addVertex(game14);
+       bracket.addVertex(game39);
+       bracket.addEdge(game13,game39,true);
+       bracket.addEdge(game14,game39,true);
+
+
+       bracket.addVertex(game15);
+       bracket.addVertex(game16);
+       bracket.addVertex(game40);
+       bracket.addEdge(game15,game40,true);
+       bracket.addEdge(game16,game40,true);
+
+
+       bracket.addVertex(game15);
+       bracket.addVertex(game16);
+       bracket.addVertex(game41);
+       bracket.addEdge(game15,game41,true);
+       bracket.addEdge(game16,game41,true);
+
+
+       bracket.addVertex(game17);
+       bracket.addVertex(game18);
        bracket.addVertex(game42);
        bracket.addEdge(game17,game42,true);
-       bracket.addEdge(game13,game42,true);
+       bracket.addEdge(game18,game42,true);
 
-       //BYU vs Illinois
-       bracket.addVertex(game21);
-       bracket.addVertex(game9);
+ 
+       bracket.addVertex(game19);
+       bracket.addVertex(game20);
        bracket.addVertex(game43);
-       bracket.addEdge(game9,game43,true);
-       bracket.addEdge(game21,game43,true);
+       bracket.addEdge(game19,game43,true);
+       bracket.addEdge(game20,game43,true);
 
-       //Washington St. vs Iowa St.
-       bracket.addVertex(game28);
-       bracket.addVertex(game5);
+  
+       bracket.addVertex(game21);
+       bracket.addVertex(game22);
        bracket.addVertex(game44);
-       bracket.addEdge(game28,game44,true);
-       bracket.addEdge(game5,game44,true);
+       bracket.addEdge(game21,game44,true);
+       bracket.addEdge(game22,game44,true);
 
-       //North Carolina vs Mississipi St.
-       bracket.addVertex(game4);
-       bracket.addVertex(game32);
-       bracket.addVertex(game45);
-       bracket.addEdge(game4,game45,true);
-       bracket.addEdge(game32,game45,true);
-
-       //Saint Mary's Alabama
-       bracket.addVertex(game18);
-       bracket.addVertex(game14);
-       bracket.addVertex(game46);
-       bracket.addEdge(game18,game46,true);
-       bracket.addEdge(game14,game46,true);
-
-       //Clemson Baylor
+ 
+       bracket.addVertex(game23);
        bracket.addVertex(game24);
-       bracket.addVertex(game10);
-       bracket.addVertex(game47);
-       bracket.addEdge(game24,game47,true);
-       bracket.addEdge(game10,game47,true);
+       bracket.addVertex(game45);
+       bracket.addEdge(game23,game45,true);
+       bracket.addEdge(game24,game45,true);
 
-       //Dayton vs Arizona
+
+       bracket.addVertex(game25);
        bracket.addVertex(game26);
-       bracket.addVertex(game6);
-       bracket.addVertex(game48);
-       bracket.addEdge(game26,game48,true);
-       bracket.addEdge(game6,game48,true);
+       bracket.addVertex(game46);
+       bracket.addEdge(game25,game46,true);
+       bracket.addEdge(game26,game46,true);
 
-       //Purdue vs Kansas
+
+       bracket.addVertex(game27);
+       bracket.addVertex(game28);
+       bracket.addVertex(game47);
+       bracket.addEdge(game27,game47,true);
+       bracket.addEdge(game28,game47,true);
+
+
+       bracket.addVertex(game29);
+       bracket.addVertex(game30);
+       bracket.addVertex(game48);
+       bracket.addEdge(game29,game48,true);
+       bracket.addEdge(game30,game48,true);
+
+   
        bracket.addVertex(game49);
        bracket.addEdge(game33,game49,true);
        bracket.addEdge(game34,game49,true);
 
-       //Creighton vs Tennessee
+      
        bracket.addVertex(game50);
        bracket.addEdge(game35,game50,true);
        bracket.addEdge(game36,game50,true);
 
-       //Houston vs Duke
+    
        bracket.addVertex(game51);
        bracket.addEdge(game37,game51,true);
        bracket.addEdge(game38,game51,true);
 
-       //Kentucky Marquette
+   
        bracket.addVertex(game52);
        bracket.addEdge(game39,game52,true);
        bracket.addEdge(game40,game52,true);
 
-       //UConn Auburn
+       
        bracket.addVertex(game53);
        bracket.addEdge(game41,game53,true);
        bracket.addEdge(game42,game53,true);
 
-       //Iowa State vs Illinois
+       
        bracket.addVertex(game54);
        bracket.addEdge(game43,game54,true);
        bracket.addEdge(game44,game54,true);
 
-       //UNC vs Alabama
+       
        bracket.addVertex(game55);
        bracket.addEdge(game45,game55,true);
        bracket.addEdge(game46,game55,true);
 
-       //UNC vs Alabama
+ 
        bracket.addVertex(game56);
        bracket.addEdge(game47,game56,true);
        bracket.addEdge(game48,game56,true);
 
-       //Purdue vs Tennessee
+       
        bracket.addVertex(game57);
        bracket.addEdge(game49,game57,true);
        bracket.addEdge(game50,game57,true);
 
-       //Houston Marquette
+      
        bracket.addVertex(game58);
        bracket.addEdge(game51,game58,true);
        bracket.addEdge(game52,game58,true);
 
-       //UConn vs Iowa State
+       
        bracket.addVertex(game59);
        bracket.addEdge(game53,game59,true);
        bracket.addEdge(game54,game59,true);
 
-       //UNC vs Arizona
+    
        bracket.addVertex(game60);
        bracket.addEdge(game55,game60,true);
        bracket.addEdge(game56,game60,true);
 
-       //Final Four (Houston Purdue)
+
        bracket.addVertex(game61);
        bracket.addEdge(game57,game61,true);
        bracket.addEdge(game58,game61,true);
 
-       //Final Four (UConn vs UNC)
        bracket.addVertex(game62);
        bracket.addEdge(game59,game62,true);
        bracket.addEdge(game60,game62,true);
 
-       //Championship
-       //Final Four (Houston Purdue)
+
        bracket.addVertex(game63);
        bracket.addEdge(game61,game63,true);
        bracket.addEdge(game62,game63,true);
+
+
+
+   }
+}
+
 
 
 
