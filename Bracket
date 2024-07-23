@@ -1,7 +1,11 @@
 package org.example;
 
+
+import java.util.ArrayList;
+
 public class Bracket {
-   Graph<Game> bracket;
+   Graph<Game> bracket =  new Graph<>();
+   ArrayList<Game> bracketArray = new ArrayList<>();
    Game game1;
     Game game2;
     Game game3;
@@ -34,73 +38,141 @@ public class Bracket {
     Game game30;
     Game game31;
     Game game32;
+
+    Game game33 = new Game();
+    Game game34 = new Game();
+    Game game35 = new Game();
+    Game game36 = new Game();
+    Game game37 = new Game();
+    Game game38 = new Game();
+    Game game39 = new Game();
+    Game game40 = new Game();
+    Game game41 = new Game();
+    Game game42 = new Game();
+    Game game43 = new Game();
+    Game game44 = new Game();
+    Game game45 = new Game();
+    Game game46 = new Game();
+    Game game47 = new Game();
+    Game game48 = new Game();
+    Game game49 = new Game();
+    Game game50 = new Game();
+    Game game51 = new Game();
+    Game game52 = new Game();
+    Game game53 = new Game();
+    Game game54 = new Game();
+    Game game55 = new Game();
+    Game game56 = new Game();
+    Game game57 = new Game();
+    Game game58 = new Game();
+    Game game59 = new Game();
+    Game game60 = new Game();
+    Game game61 = new Game();
+    Game game62 = new Game();
+    Game game63 = new Game();
    Bracket() {
         game1 = new Game("Connecticut",1,"Stetson",16);
+        bracketArray.add(game1);
         game2 = new Game("Florida Atlantic",8,"Northwestern",9);
+       bracketArray.add(game2);
         game3 = new Game("San Diego St.",5,"UAB",12);
+       bracketArray.add(game3);
         game4 = new Game("Auburn",4,"Yale",13);
+       bracketArray.add(game4);
         game5 = new Game("BYU",6,"Duquesne",11);
+       bracketArray.add(game5);
         game6 = new Game("Illinois",3,"Morehead St.",14);
+       bracketArray.add(game6);
         game7 = new Game("Washington St.",7,"Drake",10);
+       bracketArray.add(game7);
         game8 = new Game("Iowa St.",2,"South Dakota St.",15);
+       bracketArray.add(game8);
 
         game9 = new Game("North Carolina",1,"Wagner",16);
+       bracketArray.add(game9);
         game10 = new Game("Mississippi St.",8,"Michigan St.", 9);
+       bracketArray.add(game10);
         game11 = new Game("Saint Mary's", 5, "Grand Canyon",12);
+       bracketArray.add(game11);
         game12 = new Game("Alabama",4,"Charleston",13);
+       bracketArray.add(game12);
         game13 = new Game("Clemson",6,"New Mexico",11);
+       bracketArray.add(game13);
         game14 = new Game("Baylor",3,"Colgate",14);
+       bracketArray.add(game14);
         game15 = new Game("Dayton",7,"Nevada",10);
+       bracketArray.add(game15);
         game16 = new Game("Arizona",2,"Long Beach St.",15);
+       bracketArray.add(game16);
 
         game17 = new Game("Houston",1,"Longwood",16);
+       bracketArray.add(game17);
         game18 = new Game("Nebraska",8,"Texas A&M",9);
+       bracketArray.add(game18);
         game19 = new Game("Wisconsin",5,"James Madison",15);
+       bracketArray.add(game19);
         game20 = new Game("Duke",4,"Vermont",13);
+       bracketArray.add(game20);
         game21 = new Game("Texas Tech",6,"N.C. State",11);
+       bracketArray.add(game21);
         game22 = new Game("Kentucky",3,"Oakland",14);
+       bracketArray.add(game22);
         game23 = new Game("Florida",7,"Colorado",10);
+       bracketArray.add(game23);
         game24 = new Game("Marquette",2,"Western Kentucky",15);
+       bracketArray.add(game24);
 
         game25 = new Game("Purdue",1,"Grambling St.",16);
+       bracketArray.add(game25);
         game26 = new Game("Utah St.",8,"TCU",9);
+       bracketArray.add(game26);
         game27 = new Game("Gonzaga",5,"McNeese St.",12);
+       bracketArray.add(game27);
         game28 = new Game("Kansas",4,"Samford",13);
+       bracketArray.add(game28);
         game29 = new Game("South Carolina",6,"Oregon",11);
+       bracketArray.add(game29);
         game30 = new Game("Creighton",3,"Akron",14);
+       bracketArray.add(game30);
         game31 = new Game("Texas",7,"Colorado St.",10);
+       bracketArray.add(game31);
         game32 = new Game("Tennessee",2,"Saint Peter's",15);
-       Game game33 = new Game();
-       Game game34 = new Game();
-       Game game35 = new Game();
-       Game game36 = new Game();
-       Game game37 = new Game();
-       Game game38 = new Game();
-       Game game39 = new Game();
-       Game game40 = new Game();
-       Game game41 = new Game();
-       Game game42 = new Game();
-       Game game43 = new Game();
-       Game game44 = new Game();
-       Game game45 = new Game();
-       Game game46 = new Game();
-       Game game47 = new Game();
-       Game game48 = new Game();
-       Game game49 = new Game();
-       Game game50 = new Game();
-       Game game51 = new Game();
-       Game game52 = new Game();
-       Game game53 = new Game();
-       Game game54 = new Game();
-       Game game55 = new Game();
-       Game game56 = new Game();
-       Game game57 = new Game();
-       Game game58 = new Game();
-       Game game59 = new Game();
-       Game game60 = new Game();
-       Game game61 = new Game();
-       Game game62 = new Game();
-       Game game63 = new Game();
+       bracketArray.add(game32);
+
+
+       /*need to add game33-63*/
+       bracketArray.add(game33);
+       bracketArray.add(game34);
+       bracketArray.add(game35);
+       bracketArray.add(game36);
+       bracketArray.add(game37);
+       bracketArray.add(game38);
+       bracketArray.add(game39);
+       bracketArray.add(game40);
+       bracketArray.add(game41);
+       bracketArray.add(game42);
+       bracketArray.add(game43);
+       bracketArray.add(game44);
+       bracketArray.add(game45);
+       bracketArray.add(game46);
+       bracketArray.add(game47);
+       bracketArray.add(game48);
+       bracketArray.add(game49);
+       bracketArray.add(game50);
+       bracketArray.add(game51);
+       bracketArray.add(game52);
+       bracketArray.add(game53);
+       bracketArray.add(game54);
+       bracketArray.add(game55);
+       bracketArray.add(game56);
+       bracketArray.add(game57);
+       bracketArray.add(game58);
+       bracketArray.add(game59);
+       bracketArray.add(game60);
+       bracketArray.add(game61);
+       bracketArray.add(game62);
+       bracketArray.add(game63);
+
 
        bracket.addVertex(game1);
        bracket.addVertex(game2);
@@ -136,14 +208,14 @@ public class Bracket {
        bracket.addEdge(game9,game37,true);
        bracket.addEdge(game10,game37,true);
 
-  
+
        bracket.addVertex(game11);
        bracket.addVertex(game12);
        bracket.addVertex(game38);
        bracket.addEdge(game11,game38,true);
        bracket.addEdge(game12,game38,true);
 
-       
+
        bracket.addVertex(game13);
        bracket.addVertex(game14);
        bracket.addVertex(game39);
@@ -171,21 +243,21 @@ public class Bracket {
        bracket.addEdge(game17,game42,true);
        bracket.addEdge(game18,game42,true);
 
- 
+
        bracket.addVertex(game19);
        bracket.addVertex(game20);
        bracket.addVertex(game43);
        bracket.addEdge(game19,game43,true);
        bracket.addEdge(game20,game43,true);
 
-  
+
        bracket.addVertex(game21);
        bracket.addVertex(game22);
        bracket.addVertex(game44);
        bracket.addEdge(game21,game44,true);
        bracket.addEdge(game22,game44,true);
 
- 
+
        bracket.addVertex(game23);
        bracket.addVertex(game24);
        bracket.addVertex(game45);
@@ -213,62 +285,62 @@ public class Bracket {
        bracket.addEdge(game29,game48,true);
        bracket.addEdge(game30,game48,true);
 
-   
+
        bracket.addVertex(game49);
        bracket.addEdge(game33,game49,true);
        bracket.addEdge(game34,game49,true);
 
-      
+
        bracket.addVertex(game50);
        bracket.addEdge(game35,game50,true);
        bracket.addEdge(game36,game50,true);
 
-    
+
        bracket.addVertex(game51);
        bracket.addEdge(game37,game51,true);
        bracket.addEdge(game38,game51,true);
 
-   
+
        bracket.addVertex(game52);
        bracket.addEdge(game39,game52,true);
        bracket.addEdge(game40,game52,true);
 
-       
+
        bracket.addVertex(game53);
        bracket.addEdge(game41,game53,true);
        bracket.addEdge(game42,game53,true);
 
-       
+
        bracket.addVertex(game54);
        bracket.addEdge(game43,game54,true);
        bracket.addEdge(game44,game54,true);
 
-       
+
        bracket.addVertex(game55);
        bracket.addEdge(game45,game55,true);
        bracket.addEdge(game46,game55,true);
 
- 
+
        bracket.addVertex(game56);
        bracket.addEdge(game47,game56,true);
        bracket.addEdge(game48,game56,true);
 
-       
+
        bracket.addVertex(game57);
        bracket.addEdge(game49,game57,true);
        bracket.addEdge(game50,game57,true);
 
-      
+
        bracket.addVertex(game58);
        bracket.addEdge(game51,game58,true);
        bracket.addEdge(game52,game58,true);
 
-       
+
        bracket.addVertex(game59);
        bracket.addEdge(game53,game59,true);
        bracket.addEdge(game54,game59,true);
 
-    
+
        bracket.addVertex(game60);
        bracket.addEdge(game55,game60,true);
        bracket.addEdge(game56,game60,true);
@@ -290,10 +362,16 @@ public class Bracket {
 
 
    }
-}
+   void printBracket() {
+       System.out.print("");
+   }
 
 
+   /*calculates the game in which the winning team should play */
+   int getNextGame(int OriginalGameNumber) {
+       double gameNumberDivided = (double) OriginalGameNumber / 2;
+       int newNumber = (int)Math.ceil(gameNumberDivided);
 
-
+       return newNumber + 32;
    }
 }
