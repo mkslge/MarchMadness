@@ -25,7 +25,10 @@ public class Game {
     }
 
     Game() {
-
+        team1 = new Team();
+        team2 = new Team();
+        winner = null;
+        loser = null;
     }
  public double calculateOdds() {
      double pointDiff = (team1.adjEM - team2.adjEM) * (team1.adjT + team2.adjT) / 200;
@@ -33,20 +36,34 @@ public class Game {
      oddsOutOf100 = CDF * 100;
      return oddsOutOf100;
  }
- public void calculateWinner() {
+ public String calculateWinner() {
      Random random = new Random();
 
      double randomDouble = (100) * random.nextDouble();
      if(oddsOutOf100 < randomDouble) {
-         winner = team1;
-         loser = team2;
+         winner = new Team(team1);
+         loser = new Team(team2);
      } else {
-         winner = team2;
-         loser = team1;
+         winner = new Team(team2);
+         loser = new Team(team1);
      }
+     return winner.name;
  }
- public void addToBracket(Team currTeam) {
-        //iterate through
+ public void addTeams(Team team1, Team team2) {
+        this.team1 = team1;
+        this.team2 = team2;
  }
+ void printGame() {
+        System.out.println("Game: " + team1.name + " v.s " + team2.name);
+ }
+
+ void setTeam1(Team other) {
+        team1 = new Team(other);
+
+ }
+
+    void setTeam2(Team other) {
+        team2 = new Team(other);
+    }
 
 }
