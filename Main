@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.HashSet;
 
 import static java.lang.Character.*;
 
@@ -14,13 +15,13 @@ import static java.lang.Character.*;
 public class Main {
 
     public static void main(String[] args) throws IOException{
-        FileInputStream fis = new FileInputStream("/Users/markseeliger/Desktop/practice2/src/main/java/org/example/data.txt");
+        FileInputStream fis = new FileInputStream("/Users/ACCOUNT_NAME/Desktop/practice2/src/main/java/org/example/data.txt");
         String data;
         HashMap<String, Integer> seeding = new HashMap<>();
         Graph<Integer> graph = new Graph<>();
-        ArrayList<Team> teams = new ArrayList<>();
-        //Bracket bracket = new Bracket();
-        BufferedReader br = new BufferedReader(new FileReader("/Users/markseeliger/Desktop/practice2/src/main/java/org/example/data.txt"));
+        HashMap<String, Team> teams = new HashMap<>(); //hashmap of teams
+        Bracket bracket = new Bracket();
+        BufferedReader br = new BufferedReader(new FileReader("/Users/ACCOUNT_NAME/Desktop/practice2/src/main/java/org/example/data.txt"));
         graph.addEdge(0,1,true);
         seeding.put("Connecticut",1);
         seeding.put("Houston",1);
@@ -89,46 +90,205 @@ public class Main {
 
         while ((data = br.readLine()) != null) {
             for(String name : seeding.keySet()) {
+                /*if(name.equals("Grambling St.")) {
+                    System.out.println(getAdjEM(data,name));
+                }*/
                 if(data.contains(name) && lengthOfNameInLine(data) == name.length()) {
                     double adjEM = getAdjEM(data,name);
                     double adjT  = getAdjEM(data,name);
-                    teams.add(new Team(name,seeding.get(name),adjEM,adjT));
+                    teams.put(name, new Team(name,seeding.get(name),adjEM,adjT));
 
-                    System.out.print("Team: " + name + " " + getAdjEM(data,name));
-                    System.out.println(" " + getAdjT(data,name));
+                    //System.out.print("Team: " + name + " " + getAdjEM(data,name));
+                    //System.out.println(" " + getAdjT(data,name));
 
                     break;
                 }
             }
 
         }
+        for(String names : teams.keySet()) {
+            //System.out.println(names);
+        }
+        //what is this doing?
+        //sets all the data for each team
+        for(String name : seeding.keySet()) {
+            //System.out.println(name);
+            for(int i = 0; i < 32;i++) {
+                if(bracket.bracketArray.get(i).team1.name.equals(name)) {
+                    //System.out.println(name);
+                    bracket.bracketArray.get(i).team1 = new Team(teams.get(name));
+                    //System.out.println("Hi");
+                } else if(bracket.bracketArray.get(i).team2.name.equals(name)) {
+                    //System.out.println(name);
+                    bracket.bracketArray.get(i).team2 = new Team(teams.get(name));
 
-        for(int i = 0; i < 64;i++) {
-            //addToBracket(teams.get(i));
+                }
+            }
         }
 
 
 
-        // Gives the no of vertices in the graph.
-        graph.getVertexCount();
-        Team purdue = new Team("Purdue",1);
-        Team grambling = new Team("Grambling St." , 16);
-        purdue.adjEM = 29.34;
-        purdue.adjT = 67.5;
-        grambling.adjEM = -6.97;
-        grambling.adjT = 64.9;
-        Game test_game = new Game();
-        test_game.team1 = purdue;
-        test_game.team2 = grambling;
+        //now calculate games for each team
+        int teamCount = 0;
+        for(int i = 0; i < 32;i++) {
+            teamCount++;
+            bracket.bracketArray.get(i).calculateOdds();
+            bracket.bracketArray.get(i).calculateWinner();
+            //bracket.bracketArray.get(i).printGame();
 
-        test_game.calculateOdds();
-        for(int i = 1; i <= 100;i++) {
-            test_game.calculateWinner();
-            test_game.calculateOdds();
-            //System.out.println(test_game.oddsOutOf100);
-            System.out.println("Winner of game " + i + " " + test_game.winner.name);
 
+            /*filling up next bracket*/
+
+            int indexOfWinner = bracket.getNextGame(i + 1) ;
+
+            indexOfWinner--;
+            System.out.println("Winner: " + bracket.bracketArray.get(i).winner.name);
+            System.out.println("Next Index: " + indexOfWinner);
+            if(teamCount % 2 == 1) {
+                bracket.bracketArray.get(indexOfWinner).setTeam1(bracket.bracketArray.get(i).winner);
+
+            } else {
+                bracket.bracketArray.get(indexOfWinner).setTeam2(bracket.bracketArray.get(i).winner);
+                //bracket.bracketArray.get(indexOfWinner).printGame();
+            }
         }
+        System.out.println();
+
+
+
+        System.out.println("2nd Round:");
+
+        for(int i = 32; i <= 47;i++) {
+            
+            bracket.bracketArray.get(i).printGame();
+        }
+        System.out.println();
+
+
+
+
+        //2nd round calculations
+        teamCount = 0;
+        for(int i = 32; i <= 47;i++) {
+            teamCount++;
+            bracket.bracketArray.get(i).calculateOdds();
+            bracket.bracketArray.get(i).calculateWinner();
+            //bracket.bracketArray.get(i).printGame();
+
+
+            /*filling up next bracket*/
+
+            int indexOfWinner = bracket.getNextGame(i + 1) ;
+
+            indexOfWinner--;
+            System.out.println("Winner: " + bracket.bracketArray.get(i).winner.name);
+            System.out.println("Next Index: " + indexOfWinner);
+            if(teamCount % 2 == 1) {
+                bracket.bracketArray.get(indexOfWinner).setTeam1(bracket.bracketArray.get(i).winner);
+
+            } else {
+                bracket.bracketArray.get(indexOfWinner).setTeam2(bracket.bracketArray.get(i).winner);
+                //bracket.bracketArray.get(indexOfWinner).printGame();
+            }
+        }
+        System.out.println();
+
+
+        teamCount = 0;
+        for(int i = 48; i <= 55;i++) {
+            teamCount++;
+            bracket.bracketArray.get(i).calculateOdds();
+            bracket.bracketArray.get(i).calculateWinner();
+            //bracket.bracketArray.get(i).printGame();
+
+
+            /*filling up next bracket*/
+
+            int indexOfWinner = bracket.getNextGame(i + 1) ;
+
+            indexOfWinner--;
+            System.out.println("Winner: " + bracket.bracketArray.get(i).winner.name);
+            System.out.println("Next Index: " + indexOfWinner);
+            if(teamCount % 2 == 1) {
+                bracket.bracketArray.get(indexOfWinner).setTeam1(bracket.bracketArray.get(i).winner);
+
+            } else {
+                bracket.bracketArray.get(indexOfWinner).setTeam2(bracket.bracketArray.get(i).winner);
+                //bracket.bracketArray.get(indexOfWinner).printGame();
+            }
+        }
+        System.out.println();
+
+        teamCount = 0;
+        for(int i = 56; i <= 59;i++) {
+            teamCount++;
+            bracket.bracketArray.get(i).calculateOdds();
+            bracket.bracketArray.get(i).calculateWinner();
+            //bracket.bracketArray.get(i).printGame();
+
+
+            /*filling up next bracket*/
+
+            int indexOfWinner = bracket.getNextGame(i + 1) ;
+
+            indexOfWinner--;
+            System.out.println("Winner: " + bracket.bracketArray.get(i).winner.name);
+            System.out.println("Next Index: " + indexOfWinner);
+            if(teamCount % 2 == 1) {
+                bracket.bracketArray.get(indexOfWinner).setTeam1(bracket.bracketArray.get(i).winner);
+
+            } else {
+                bracket.bracketArray.get(indexOfWinner).setTeam2(bracket.bracketArray.get(i).winner);
+                //bracket.bracketArray.get(indexOfWinner).printGame();
+            }
+        }
+        System.out.println();
+
+        teamCount = 0;
+        for(int i = 60; i <= 61;i++) {
+            teamCount++;
+            bracket.bracketArray.get(i).calculateOdds();
+            bracket.bracketArray.get(i).calculateWinner();
+            
+
+
+            /*filling up next bracket*/
+
+            int indexOfWinner = bracket.getNextGame(i + 1) ;
+
+            indexOfWinner--;
+            System.out.println("Winner: " + bracket.bracketArray.get(i).winner.name);
+            System.out.println("Next Index: " + indexOfWinner);
+            if(teamCount % 2 == 1) {
+                bracket.bracketArray.get(indexOfWinner).setTeam1(bracket.bracketArray.get(i).winner);
+
+            } else {
+                bracket.bracketArray.get(indexOfWinner).setTeam2(bracket.bracketArray.get(i).winner);
+                
+            }
+        }
+        System.out.println();
+
+        teamCount = 0;
+        for(int i = 62; i <= 62;i++) {
+            teamCount++;
+            bracket.bracketArray.get(i).calculateOdds();
+            bracket.bracketArray.get(i).calculateWinner();
+            
+
+
+            /*filling up next bracket*/
+
+            int indexOfWinner = bracket.getNextGame(i + 1) ;
+
+            indexOfWinner--;
+            System.out.println("Winner: " + bracket.bracketArray.get(i).winner.name + " (" + bracket.bracketArray.get(i).winner.seed + ")");
+            
+        }
+        System.out.println();
+
+
+
 
 
     }
@@ -142,7 +302,8 @@ public class Main {
         while(!isDigit(line.charAt(right))) {
             right++;
         }
-        while(!isAlphabetic(line.charAt(right))) {
+        right--;
+        while(Character.isWhitespace(line.charAt(right)) ) {
             right--;
         }
         return right - left + 1;
