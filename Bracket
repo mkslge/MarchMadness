@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Bracket {
    Graph<Game> bracket =  new Graph<>();
    ArrayList<Game> bracketArray = new ArrayList<>();
+
    Game game1;
     Game game2;
     Game game3;
