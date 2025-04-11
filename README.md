@@ -12,7 +12,7 @@ The model produces brackets that reach up to the **99.9th percentile** in predic
 
 Here is a sample of 100,000 simulated games:
 
-![Simulated Games](https://github.com/user-attachments/assets/8b40b419-6e70-4ada-8c23-d5d6ff2f21d4)
+![Simulated Games](https://github.com/user-attachments/assets/5d741a4f-014a-49ad-982e-0adb6932d7e9)
 
 ---
 
