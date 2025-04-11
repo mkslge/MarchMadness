@@ -3,3 +3,5 @@
 /bin/
 
 *.class
+.env
+MySQLConnection.java
