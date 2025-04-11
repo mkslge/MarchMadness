@@ -1,432 +1,69 @@
 package org.example;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.util.HashSet;
 
-import static java.lang.Character.*;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.io.IOException;
+
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
+@SpringBootApplication
 public class Main {
+    public static void main(String[] args) throws IOException {
 
-    public static void main(String[] args) throws IOException{
-        FileInputStream fis = new FileInputStream("/Users/ACCOUNT_NAME/Desktop/practice2/src/main/java/org/example/data.txt");
-        String data;
-        HashMap<String, Integer> seeding = new HashMap<>();
-        Graph<Integer> graph = new Graph<>();
-        HashMap<String, Team> teams = new HashMap<>(); //hashmap of teams
-        Bracket bracket = new Bracket();
-        BufferedReader br = new BufferedReader(new FileReader("/Users/ACCOUNT_NAME/Desktop/practice2/src/main/java/org/example/data.txt"));
-        graph.addEdge(0,1,true);
-        seeding.put("Connecticut",1);
-        seeding.put("Houston",1);
-        seeding.put("Purdue",1);
-        seeding.put("North Carolina",1);
-        seeding.put("Arizona",2);
-        seeding.put("Iowa St.",2);
-        seeding.put("Tennessee",2);
-        seeding.put("Marquette",2);
-        seeding.put("Illinois",3);
-        seeding.put("Creighton",3);
-        seeding.put("Baylor",3);
-        seeding.put("Kentucky",3);
-        seeding.put("Auburn",4);
-        seeding.put("Duke",4);
-        seeding.put("Alabama",4);
-        seeding.put("Kansas",4);
-        seeding.put("Gonzaga",5);
-        seeding.put("Wisconsin",5);
-        seeding.put("Saint Mary's",5);
-        seeding.put("San Diego St.",5);
-        seeding.put("BYU",6);
-        seeding.put("Texas Tech",6);
-        seeding.put("Clemson",6);
-        seeding.put("South Carolina",6);
-        seeding.put("Texas",7);
-        seeding.put("Florida",7);
-        seeding.put("Dayton",7);
-        seeding.put("Washington St.",7);
-        seeding.put("Nebraska",8);
-        seeding.put("Mississippi St.",8);
-        seeding.put("Florida Atlantic",8);
-        seeding.put("Utah St.",8);
-        seeding.put("Michigan St.",9);
-        seeding.put("TCU", 9);
-        seeding.put("Northwestern",9);
-        seeding.put("Texas A&M",9);
-        seeding.put("Colorado",10);
-        seeding.put("Nevada",10);
-        seeding.put("Drake",10);
-        seeding.put("Colorado St.",10);
-        seeding.put("New Mexico",11);
-        seeding.put("Oregon",11);
-        seeding.put("N.C. State",11);
-        seeding.put("Duquesne",11);
-        seeding.put("Grand Canyon",12);
-        seeding.put("James Madison",12);
-        seeding.put("McNeese St.",12);
-        seeding.put("UAB",12);
-        seeding.put("Samford",13);
-        seeding.put("Yale",13);
-        seeding.put("Charleston",13);
-        seeding.put("Vermont",13);
-        seeding.put("Morehead St.",14);
-        seeding.put("Akron",14);
-        seeding.put("Oakland",14);
-        seeding.put("Colgate",14);
-        seeding.put("Western Kentucky",15);
-        seeding.put("South Dakota St.",15);
-        seeding.put("Long Beach St.",15);
-        seeding.put("Saint Peter's",15);
-        seeding.put("Longwood",16);
-        seeding.put("Stetson",16);
-        seeding.put("Grambling St.",16);
-        seeding.put("Wagner",16);
+        /*Team maryland = new Team(2025, "Maryland", 4 );
 
-        while ((data = br.readLine()) != null) {
-            for(String name : seeding.keySet()) {
-                /*if(name.equals("Grambling St.")) {
-                    System.out.println(getAdjEM(data,name));
-                }*/
-                if(data.contains(name) && lengthOfNameInLine(data) == name.length()) {
-                    double adjEM = getAdjEM(data,name);
-                    double adjT  = getAdjEM(data,name);
-                    teams.put(name, new Team(name,seeding.get(name),adjEM,adjT));
+        // Create a TeamCrud instance
+        TeamCrud teamCrud = new TeamCrud();
+        teamCrud.addWin(maryland);
+        // Add Maryland team to the database
+        int result = teamCrud.getTeamWins(maryland);
+        System.out.println("Maryland has won " + result + " times");*/
 
-                    //System.out.print("Team: " + name + " " + getAdjEM(data,name));
-                    //System.out.println(" " + getAdjT(data,name));
 
-                    break;
-                }
+        /*Simulation sim = new Simulation();
+        MySQLConnection connection = new MySQLConnection();
+        connection.getConnection();
+        SpringApplication.run(Main.class, args);
+        connection.closeConnection();*/
+        int count = 0;
+        MySQLConnection connection = new MySQLConnection();
+        connection.getConnection();
+        TeamCrud teamCrud = new TeamCrud();
+        while(count < 100000) {
+
+
+            Region midwest = new Region("/Users/markseeliger/Documents/Springboot/src/main/java/org/example/midwest2024.json");
+            Region west = new Region("/Users/markseeliger/Documents/Springboot/src/main/java/org/example/west2024.json");
+            Region east = new Region("/Users/markseeliger/Documents/Springboot/src/main/java/org/example/east2024.json");
+            Region south = new Region("/Users/markseeliger/Documents/Springboot/src/main/java/org/example/south2024.json");
+
+            System.out.println("Midwest: " + midwest.getWinner().getName());
+            System.out.println("West: " + west.getWinner().getName());
+            System.out.println("South: " + south.getWinner().getName());
+            System.out.println("East: " + east.getWinner().getName());
+
+            FinalFour finalFour = new FinalFour(west, east, south, midwest);
+            System.out.println("Winner: " + finalFour.getChampion().getName());
+
+
+
+            if(teamCrud.getTeamWins(finalFour.getChampion()) <= 0) {
+                System.out.println("Y: " + finalFour.getChampion().getYear());
+                teamCrud.add(finalFour.getChampion());
             }
 
-        }
-        for(String names : teams.keySet()) {
-            //System.out.println(names);
-        }
-        //what is this doing?
-        //sets all the data for each team
-        for(String name : seeding.keySet()) {
-            //System.out.println(name);
-            for(int i = 0; i < 32;i++) {
-                if(bracket.bracketArray.get(i).team1.name.equals(name)) {
-                    //System.out.println(name);
-                    bracket.bracketArray.get(i).team1 = new Team(teams.get(name));
-                    //System.out.println("Hi");
-                } else if(bracket.bracketArray.get(i).team2.name.equals(name)) {
-                    //System.out.println(name);
-                    bracket.bracketArray.get(i).team2 = new Team(teams.get(name));
-
-                }
-            }
-        }
-
-
-
-        //now calculate games for each team
-        int teamCount = 0;
-        for(int i = 0; i < 32;i++) {
-            teamCount++;
-            bracket.bracketArray.get(i).calculateOdds();
-            bracket.bracketArray.get(i).calculateWinner();
-            //bracket.bracketArray.get(i).printGame();
-
-
-            /*filling up next bracket*/
-
-            int indexOfWinner = bracket.getNextGame(i + 1) ;
-
-            indexOfWinner--;
-            System.out.println("Winner: " + bracket.bracketArray.get(i).winner.name);
-            System.out.println("Next Index: " + indexOfWinner);
-            if(teamCount % 2 == 1) {
-                bracket.bracketArray.get(indexOfWinner).setTeam1(bracket.bracketArray.get(i).winner);
-
+            if (teamCrud.incrementWin(finalFour.getChampion())) {
+                System.out.println("Added");
+                System.out.println("Year of champ: " + finalFour.getChampion().getYear());
             } else {
-                bracket.bracketArray.get(indexOfWinner).setTeam2(bracket.bracketArray.get(i).winner);
-                //bracket.bracketArray.get(indexOfWinner).printGame();
+                System.out.println("Not added");
             }
+            count++;
         }
-        System.out.println();
-
-
-
-        System.out.println("2nd Round:");
-
-        for(int i = 32; i <= 47;i++) {
-            
-            bracket.bracketArray.get(i).printGame();
-        }
-        System.out.println();
-
-
-
-
-        //2nd round calculations
-        teamCount = 0;
-        for(int i = 32; i <= 47;i++) {
-            teamCount++;
-            bracket.bracketArray.get(i).calculateOdds();
-            bracket.bracketArray.get(i).calculateWinner();
-            //bracket.bracketArray.get(i).printGame();
-
-
-            /*filling up next bracket*/
-
-            int indexOfWinner = bracket.getNextGame(i + 1) ;
-
-            indexOfWinner--;
-            System.out.println("Winner: " + bracket.bracketArray.get(i).winner.name);
-            System.out.println("Next Index: " + indexOfWinner);
-            if(teamCount % 2 == 1) {
-                bracket.bracketArray.get(indexOfWinner).setTeam1(bracket.bracketArray.get(i).winner);
-
-            } else {
-                bracket.bracketArray.get(indexOfWinner).setTeam2(bracket.bracketArray.get(i).winner);
-                //bracket.bracketArray.get(indexOfWinner).printGame();
-            }
-        }
-        System.out.println();
-
-
-        teamCount = 0;
-        for(int i = 48; i <= 55;i++) {
-            teamCount++;
-            bracket.bracketArray.get(i).calculateOdds();
-            bracket.bracketArray.get(i).calculateWinner();
-            //bracket.bracketArray.get(i).printGame();
-
-
-            /*filling up next bracket*/
-
-            int indexOfWinner = bracket.getNextGame(i + 1) ;
-
-            indexOfWinner--;
-            System.out.println("Winner: " + bracket.bracketArray.get(i).winner.name);
-            System.out.println("Next Index: " + indexOfWinner);
-            if(teamCount % 2 == 1) {
-                bracket.bracketArray.get(indexOfWinner).setTeam1(bracket.bracketArray.get(i).winner);
-
-            } else {
-                bracket.bracketArray.get(indexOfWinner).setTeam2(bracket.bracketArray.get(i).winner);
-                //bracket.bracketArray.get(indexOfWinner).printGame();
-            }
-        }
-        System.out.println();
-
-        teamCount = 0;
-        for(int i = 56; i <= 59;i++) {
-            teamCount++;
-            bracket.bracketArray.get(i).calculateOdds();
-            bracket.bracketArray.get(i).calculateWinner();
-            //bracket.bracketArray.get(i).printGame();
-
-
-            /*filling up next bracket*/
-
-            int indexOfWinner = bracket.getNextGame(i + 1) ;
-
-            indexOfWinner--;
-            System.out.println("Winner: " + bracket.bracketArray.get(i).winner.name);
-            System.out.println("Next Index: " + indexOfWinner);
-            if(teamCount % 2 == 1) {
-                bracket.bracketArray.get(indexOfWinner).setTeam1(bracket.bracketArray.get(i).winner);
-
-            } else {
-                bracket.bracketArray.get(indexOfWinner).setTeam2(bracket.bracketArray.get(i).winner);
-                //bracket.bracketArray.get(indexOfWinner).printGame();
-            }
-        }
-        System.out.println();
-
-        teamCount = 0;
-        for(int i = 60; i <= 61;i++) {
-            teamCount++;
-            bracket.bracketArray.get(i).calculateOdds();
-            bracket.bracketArray.get(i).calculateWinner();
-            
-
-
-            /*filling up next bracket*/
-
-            int indexOfWinner = bracket.getNextGame(i + 1) ;
-
-            indexOfWinner--;
-            System.out.println("Winner: " + bracket.bracketArray.get(i).winner.name);
-            System.out.println("Next Index: " + indexOfWinner);
-            if(teamCount % 2 == 1) {
-                bracket.bracketArray.get(indexOfWinner).setTeam1(bracket.bracketArray.get(i).winner);
-
-            } else {
-                bracket.bracketArray.get(indexOfWinner).setTeam2(bracket.bracketArray.get(i).winner);
-                
-            }
-        }
-        System.out.println();
-
-        teamCount = 0;
-        for(int i = 62; i <= 62;i++) {
-            teamCount++;
-            bracket.bracketArray.get(i).calculateOdds();
-            bracket.bracketArray.get(i).calculateWinner();
-            
-
-
-            /*filling up next bracket*/
-
-            int indexOfWinner = bracket.getNextGame(i + 1) ;
-
-            indexOfWinner--;
-            System.out.println("Winner: " + bracket.bracketArray.get(i).winner.name + " (" + bracket.bracketArray.get(i).winner.seed + ")");
-            
-        }
-        System.out.println();
-
-
-
-
-
-    }
-    public static int lengthOfNameInLine(String line) {
-        int left = 0;
-        int right = 0;
-        while(!isAlphabetic(line.charAt(left))) {
-            left++;
-        }
-        right = left;
-        while(!isDigit(line.charAt(right))) {
-            right++;
-        }
-        right--;
-        while(Character.isWhitespace(line.charAt(right)) ) {
-            right--;
-        }
-        return right - left + 1;
-    }
-
-    public static double getAdjEM(String line, String name) {
-        int index = 0;
-        index += name.length();
-        //goes up until record
-        while(line.charAt(index) != '-') {
-            index++;
-        }
-        index++;
-        //goes up until AdjEM
-        while(line.charAt(index) != '+' && line.charAt(index) != '-') {
-            index++;
-        }
-        StringBuilder adjEMAsString = new StringBuilder();
-        if(line.charAt(index) == '-') {
-            adjEMAsString = new StringBuilder("-");
-        } else {
-            adjEMAsString = new StringBuilder("");
-        }
-        index++;
-        while(!isWhitespace(line.charAt(index))) {
-
-            adjEMAsString.append(line.charAt(index));
-
-            index++;
-        }
-
-        return Double.parseDouble(adjEMAsString.toString());
-
-    }
-
-    public static double getAdjT(String line,String name) {
-        int index = 0;
-        index += name.length();
-        //goes up until record
-        while(line.charAt(index) != '-') {
-            index++;
-        }
-        index++;
-        //goes up until AdjEM
-        while(line.charAt(index) != '+' && line.charAt(index) != '-') {
-            index++;
-        }
-        //goes until end of AdjEM
-        while(!isWhitespace(line.charAt(index))) {
-            index++;
-        }
-        //goes until start of AdjO
-        while(isWhitespace(line.charAt(index))) {
-            index++;
-        }
-
-        //goes up until end of AdjO
-        while(!isWhitespace(line.charAt(index))) {
-            index++;
-        }
-
-        //goes up until rank of AdjO
-        while(isWhitespace(line.charAt(index))) {
-            index++;
-        }
-
-        //goes up until end rank of AdjO
-        while(!isWhitespace(line.charAt(index))) {
-            index++;
-        }
-
-        //goes up until AdjD
-        while(isWhitespace(line.charAt(index))) {
-            index++;
-        }
-
-        //goes up until end of AdjD
-        while(!isWhitespace(line.charAt(index))) {
-            index++;
-        }
-
-        //goes up until rank of AdjD
-        while(isWhitespace(line.charAt(index))) {
-            index++;
-        }
-
-        //goes up until end of rank of AdjD
-        while(!isWhitespace(line.charAt(index))) {
-            index++;
-        }
-
-        //goes up until AdjT
-        while(isWhitespace(line.charAt(index))) {
-            index++;
-        }
-        StringBuilder adjTAsString = new StringBuilder();
-        while(!isWhitespace(line.charAt(index))) {
-            adjTAsString.append(line.charAt(index));
-            index++;
-        }
-
-
-        return Double.parseDouble(String.valueOf(adjTAsString));
-    }
-    public static double erf(double x) {
-        // Constants
-        double a1 = 0.254829592;
-        double a2 = -0.284496736;
-        double a3 = 1.421413741;
-        double a4 = -1.453152027;
-        double a5 = 1.061405429;
-        double p = 0.3275911;
-
-        // Save the sign of x
-        int sign = 1;
-        if (x < 0)
-            sign = -1;
-        x = Math.abs(x);
-
-        // A&S formula 7.1.26
-        double t = 1.0 / (1.0 + p * x);
-        double y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-x * x);
-
-        return sign * y;
+        connection.closeConnection();
+        //System.out.println("Server @ http://localhost:8080");
     }
 }
