@@ -1,13 +1,21 @@
-March Madness Modeling Project
-Welcome to the March Madness Modeling Project! This project involves predictive analytics for NCAA basketball tournaments, aiming to generate and optimize brackets for successful outcomes.
+# NCAA Tournament Predictive Analytics
 
-Features
-Predictive Analytics: Utilizes historical game statistics to predict tournament outcomes and generate optimized brackets.
-Data Handling: Efficiently processes large datasets of NCAA basketball statistics.
-Bracket Optimization: Produces brackets that have achieved high accuracy, reaching the up to 99.9th percentile in predictions, and 80th percentile consistently.
+This project involves predictive analytics for NCAA basketball tournaments, aiming to generate and optimize brackets for successful outcomes.
 
+It utilizes historical game statistics from [kenpom.com](https://kenpom.com) to predict tournament outcomes.
 
-Current Status && Visualization: Visualization features are currently in progress. We are working on integrating dynamic visual elements to showcase the predictive model and bracket generation process.
+The model produces brackets that reach up to the **99.9th percentile** in predictions and performs **consistently in the 80th percentile**.
 
-Contact
-For further information or questions, feel free to reach out via email at marklseeliger@gmail.com.
+---
+
+### Sample Simulation Output
+
+Here is a sample of 100,000 simulated games:
+
+![Simulated Games](https://github.com/user-attachments/assets/8b40b419-6e70-4ada-8c23-d5d6ff2f21d4)
+
+---
+
+### Contact
+
+For further information or questions, feel free to reach out via email at [marklseeliger@gmail.com](mailto:marklseeliger@gmail.com).
