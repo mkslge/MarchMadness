@@ -10,7 +10,7 @@ The model produces brackets that reach up to the **99.9th percentile** in predic
 
 ### Sample Simulation Output
 
-Here is a sample of 100,000 simulated games:
+Here is a sample of 100,000 simulations of the 2024 NCAA tournament:
 
 ![Simulated Games](https://github.com/user-attachments/assets/5d741a4f-014a-49ad-982e-0adb6932d7e9)
 
